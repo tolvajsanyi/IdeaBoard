@@ -1,53 +1,86 @@
 # IdeaBoard Lite
 
-**Plugin Name:** IdeaBoard Lite
-**Description:** Két-boardos ötletbeküldő rendszer AJAX-os, e-mail és név alapú szavazással.
-**Author:** Business Bloom Dev
-**Version:** 4.2
+Két-boardos ötletbeküldő rendszer WordPresshez – AJAX-os szavazással, e-mail ellenőrzéssel és admin felügyelettel. Ideális cégeknek, akik szeretnék begyűjteni az ügyfelek vagy munkatársak ötleteit és visszajelzéseit.
 
-## Felhasználói bemutató
+**Szerző:** Tolvaj Sándor  
+**Licenc:** [GPLv2 vagy újabb](https://www.gnu.org/licenses/gpl-2.0.html)  
+**Verzió:** 1.0  
+**Tesztelve:** WordPress 6.8.2 alatt
 
-Az IdeaBoard Lite egy WordPress plug-in, amely két különálló "boardra" (ügyfél és dolgozó) bontva teszi lehetővé ötletek beküldését és szavazását. A plug-in a `ideaboard-lite.php` fájlban található.
+---
 
-### Fő funkciók
+## Mire jó?
 
-1. **Egyedi tartalomtípus és taxonómia**
-   - A plug-in létrehoz egy `idea` nevű post type-ot és hozzá `board` taxonómiát, amelyben a két boardot kezeli (például "ugyfel" és "dolgozo").
+Az IdeaBoard Lite lehetővé teszi, hogy két külön felületen (ügyfél és dolgozói) fogadj be ötleteket és engedélyezz szavazást. A rendszer mindkét oldalra külön űrlapot biztosít, ellenőrzi az e-mail címeket, és segít nyomon követni a beküldött ötleteket és a rájuk leadott szavazatokat.
 
-2. **Beküldő űrlapok**
-   - Két shortcode áll rendelkezésre az ötletek beküldéséhez:
-     - `[idea_form_client]` ügyfél beküldéshez
-     - `[idea_form_employee]` dolgozói beküldéshez; ez ellenőrzi, hogy a megadott e-mail a beállított céges domainnel (például `@ceg.hu`) végződjön.
-     - A beküldő neve és e-mail címe mellett opcionálisan megadható egy **telefonszám** is, amelyet az adminisztrátorok a beérkezett értesítő e-mailben látnak.
-     - A beküldés előtt a felhasználónak el kell fogadnia az adatkezelési tájékoztatót egy kötelező GDPR jelölőnégyzettel. Mindkét űrlap tartalmaz honeypot mezőt a spamszűréshez.
+---
 
-3. **Szavazás kezelése**
-    - A `[idea_list]` shortcode listázza a választott board ötleteit, megjeleníti a szavazatszámot, és egy AJAX-al működő szavazó űrlapot ad. A "Megadom az adataimat" checkbox bepipálásával a szavazó önkéntesen megadhatja nevét és e-mail címét (dolgozói board esetén csak a megadott céges domainnel) , amelyet a rendszer eltárol és az adminfelületen a "Szavazók" metaboxban megjelenít.
+## Fő funkciók
 
-4. **Adminisztrációs felület és értesítések**
-   - A backenden megjelenik egy külön menüpont "IdeaBoard" néven a szavazások és ötletek kezeléséhez, illetve egy beállítási oldal, ahol megadhatók az értesítési e-mail címek.
-   - Új ötlet beküldésekor a `notifications.php` modul e-mailt küld a megadott címekre a beküldött adatokkal.
+- Egyedi `idea` tartalomtípus és `board` taxonómia (`ugyfel`, `dolgozo`)
+- Két külön beküldő űrlap:
+  - `[idea_form_client]` – ügyfeleknek
+  - `[idea_form_employee]` – dolgozóknak (csak céges e-mailt enged)
+- GDPR checkbox, honeypot spamszűrés, opcionális telefonszám mező
+- AJAX-alapú szavazás: `[idea_list board="ugyfel|dolgozo"]`
+- Opcionális név és e-mail megadás szavazásnál
+- Admin oldalon szavazók metabox és ötletkezelés
+- E-mail értesítések új beküldésekről
+- Automatikus CSS/JS betöltés (`ideaboard-style.css`, `vote.js`)
 
-5. **Stílus és JavaScript**
-   - A frontendet a `ideaboard-style.css` és a `vote.js` fájlok formázzák és kezelik. A szkriptek a plug-in betöltésekor automatikusan enqueued-re kerülnek.
+---
 
-### Használat
+## Használat
 
-1. **Telepítés**
-   - Másolja a repository tartalmát a WordPress `wp-content/plugins` könyvtárába.
-   - Aktiválja az "IdeaBoard Lite" plug-int az adminisztrációs felületen.
+1. Másold a plugint a `wp-content/plugins/` könyvtárba.
+2. Aktiváld a WordPress admin felületen.
+3. A „Beállítások” menüpontban add meg, hová küldje az értesítéseket.
+4. Oldalakon használd a shortcode-okat:
+   - `[idea_form_client]` vagy `[idea_form_employee]`
+   - `[idea_list board="ugyfel"]` vagy `[idea_list board="dolgozo"]`
 
-2. **Beállítások**
-   - A "Beállítások" almenüben adja meg, milyen e-mail cím(ek)re érkezzen értesítés új ötlet beküldésekor.
+---
 
-3. **Ötletbeküldés**
-   - A megfelelő oldalon illessze be a `[idea_form_client]` vagy `[idea_form_employee]` shortcode-ot. A dolgozói űrlap csak a beállított céges e-mail végződést engedi.
-   - A beküldő neve és e-mail címe mellett megadható telefonszám, amely az értesítő e-mailben is szerepel.
+## Kinek ajánlott?
 
-4. **Ötletek listázása és szavazás**
-   - A `[idea_list board="ugyfel"]` vagy `[idea_list board="dolgozo"]` shortcode megjeleníti az adott boardhoz tartozó ötleteket. A látogatók opcionálisan megadhatják nevüket és e-mail címüket egy külön checkbox kipipálása után. E-mail megadásakor a dolgozói boardon csak a beállított céges végződéssel lehet szavazni. A szavazatok számát a rendszer automatikusan frissíti.
+- Cégeknek, akik visszajelzést várnak ügyfelektől
+- Szervezeteknek, akik belső ötletelést szeretnének
+- Bármilyen WordPress-alapú oldalon, ahol fontos a közösségi részvétel
 
-5. **Admin funkciók**
-   - Az admin felületen az ötletek listájában látható a beküldők neve, e-mailje és az aktuális szavazatszám. Az egyes ötletek szerkesztőoldalán "Szavazók" metabox jelenik meg, amely felsorolja, kik adtak le érvényes szavazatot.
+---
 
-Ezzel a plug-innel egyszerűen hozható létre egy, a felhasználók ötleteit gyűjtő és azokra szavazást biztosító rendszer WordPressen belül. A honeypot mezők és az e-mail ellenőrzések alapvető spamszűrést is nyújtanak, míg a beállítható értesítések az adminisztrátoroknak segítik az új ötletek nyomon követését.
+## English
+
+IdeaBoard Lite is a WordPress plugin that lets you collect and vote on ideas in two separate boards: one for **clients**, one for **employees**. Ideal for organizations that want structured feedback and simple voting.
+
+---
+
+### Features
+
+- Custom post type: `idea`, and taxonomy: `board` (`client`, `employee`)
+- Two submission forms:
+  - `[idea_form_client]` – for client submissions
+  - `[idea_form_employee]` – for employee submissions (with email domain validation)
+- Required GDPR checkbox, honeypot spam protection, optional phone number field
+- AJAX-powered voting list with `[idea_list board="client|employee"]`
+- Optional name/email for voters (email domain check on employee board)
+- Admin panel with idea list and voter details
+- Email notifications for new ideas
+- Auto-enqueued styles and scripts (`ideaboard-style.css`, `vote.js`)
+
+---
+
+### Usage
+
+1. Upload plugin to `wp-content/plugins/`.
+2. Activate it in the admin area.
+3. Set up notification emails under “Settings”.
+4. Add the shortcodes to your pages:
+   - `[idea_form_client]`, `[idea_form_employee]`
+   - `[idea_list board="client"]`, `[idea_list board="employee"]`
+
+---
+
+### License
+
+This plugin is licensed under the [GNU GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html).

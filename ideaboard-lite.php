@@ -2,8 +2,10 @@
 /**
  * Plugin Name: IdeaBoard Lite
  * Description: Két-boardos ötletbeküldő rendszer AJAX-os, e-mail és név alapú szavazással.
- * Author: Business Bloom Dev
- * Version: 4.2
+ * Author: Tolvaj Sándor
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Version: 1.0
  */
 
 if (!defined('IDEABOARD_DEFAULT_EMPLOYEE_DOMAIN')) {
