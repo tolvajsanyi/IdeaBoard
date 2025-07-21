@@ -5,7 +5,7 @@ Két-boardos ötletbeküldő rendszer WordPresshez – AJAX-os szavazással, e-m
 **Szerző:** [Tolvaj Sándor / Business Bloom Consulting](https://businessbloom.consulting) 
 **Licenc:** [GPLv2 vagy újabb](https://www.gnu.org/licenses/gpl-2.0.html)  
 **Verzió:** 1.0  
-**Tesztelve:** WordPress 6.8.2 alatt
+**Tesztelve:** WordPress 6.8.2
 
 ---
 
