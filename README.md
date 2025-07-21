@@ -2,7 +2,7 @@
 
 Két-boardos ötletbeküldő rendszer WordPresshez – AJAX-os szavazással, e-mail ellenőrzéssel és admin felügyelettel. Ideális cégeknek, akik szeretnék begyűjteni az ügyfelek vagy munkatársak ötleteit és visszajelzéseit.
 
-**Szerző:** [Tolvaj Sándor / Business Bloom Consulting](https://businessbloom.consulting)  
+**Szerző:** [Tolvaj Sándor / Business Bloom Consulting®](https://businessbloom.consulting)  
 **Licenc:** [GPLv2 vagy újabb](https://www.gnu.org/licenses/gpl-2.0.html)  
 **Verzió:** 1.0  
 **Tesztelve:** WordPress 6.8.2
